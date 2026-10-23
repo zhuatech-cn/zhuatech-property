@@ -1,0 +1,48 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "steppedMonthlyRent": "#11025",
+      "periodRent": "#9922.5",
+      "remainingRent": "#4922.5"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "freeDays": "30"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "periodRent": "#0",
+      "overpayment": "#5000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "increaseTimes": "0"
+    },
+    "expected": {
+      "periodRent": "#9000"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "freeDays": "31"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "alreadyPaid": "9922.50"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]

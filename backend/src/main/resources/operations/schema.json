@@ -1,0 +1,97 @@
+{
+  "slug": "property",
+  "title": "租金递增与免租及已付金额核对",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "baseMonthlyRent",
+      "label": "月基准租金",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "increasePct",
+      "label": "每次递增%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "increaseTimes",
+      "label": "已约定递增次数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "30"
+    },
+    {
+      "key": "periodDays",
+      "label": "账期天数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "366"
+    },
+    {
+      "key": "freeDays",
+      "label": "本期免租天数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "366"
+    },
+    {
+      "key": "alreadyPaid",
+      "label": "本期已付",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "steppedMonthlyRent",
+      "label": "递增后月租"
+    },
+    {
+      "key": "periodRent",
+      "label": "免租后本期应计"
+    },
+    {
+      "key": "remainingRent",
+      "label": "本期未付租金"
+    },
+    {
+      "key": "overpayment",
+      "label": "本期多付"
+    }
+  ],
+  "description": "按输入递增次数、递增比例、应计天数和免租天数计算当期候选租金；不自动修改租约或发起扣款。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "baseMonthlyRent": "10000",
+        "increasePct": "5",
+        "increaseTimes": "2",
+        "periodDays": "30",
+        "freeDays": "3",
+        "alreadyPaid": "5000"
+      }
+    ]
+  }
+}
